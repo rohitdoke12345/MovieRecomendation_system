@@ -17,7 +17,7 @@ public class ClientApplication {
 		Scanner sc = new Scanner(System.in);
 		MovieService mservice = new MovieService();
 		UserService uservice = new UserService();
-		RatingReviewService rrservice =new RatingReviewService();
+		RatingReviewService rrservice = new RatingReviewService();
 
 		do {
 			System.out.println("🎬🍿..MOVIE RECOMENDATION STSTEM..🎥📽️");
