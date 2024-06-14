@@ -32,7 +32,7 @@ public class ClientApplication {
 				String adminname = sc.nextLine();
 				String adminpassword = sc.nextLine();
 				if (("rohit".equalsIgnoreCase(adminname)) && ("Admin".equals(adminpassword))) {
-					System.out.println(" Admin Login successfully..😁.");
+					System.out.println(" Admin Login successfully..😁");
 					do {
 						System.out.println("1.add new movies ");
 						System.out.println("2.show All movies");
@@ -48,9 +48,9 @@ public class ClientApplication {
 						switch (choice) {
 						case 1:
 							sc.nextLine();
-							System.out.println("enter the movie name");
+							System.out.println("Enter the movie name");
 							String mname = sc.nextLine();
-							System.out.println("enter movie language");
+							System.out.println("Enter movie language");
 							String lang = sc.nextLine();
 							System.out.println("enter the actore name");
 							String actor = sc.nextLine();
@@ -176,9 +176,10 @@ public class ClientApplication {
 						System.out.println("2.udpate user details here");
 						System.out.println("3.watch movie");
 						System.out.println("4.recomended top five movies");
-						System.out.println("5.give rating and review to movie which you watched");
-						System.out.println("6.show movie list which user already watched");
-						System.out.println("7.🔙exits");
+						System.out.println("5.");
+						System.out.println("6.give rating and review to movie which you watched");
+						System.out.println("7.show movie list which user already watched");
+						System.out.println("8.🔙exits");
 						System.out.println("ENTER YOUR CHOICE");
 						choice = sc.nextInt();
 
@@ -233,7 +234,38 @@ public class ClientApplication {
 								System.out.println("There is no such data present");
 							}
 							break;
-						case 5:
+						case 5 :
+							//see review of movie
+							sc.nextLine();
+							System.out.println("Enter the movie name to see review of movie");
+							String movname=sc.nextLine();
+							 map=rrservice.GetOverallRating();
+							if(map!=null) {
+							Set<Map.Entry<String, Float>> data=map.entrySet();
+						
+							   int flag=1;
+							for(Map.Entry<String, Float>d:data)
+							{
+								if(movname.equalsIgnoreCase(d.getKey())) {
+									if(d.getValue()>=4) {
+										System.out.println("movie was good with rating 😁:"+d.getValue());
+									}else if(d.getValue()==3) {
+										System.out.println("movie was neutral with rating 😊:"+d.getValue());
+									}else {
+										System.out.println("movie was not good with rating 😒:"+d.getValue());
+									}
+									flag=0;
+									break;
+								}
+							
+							}if(flag==1) {
+								System.out.println("review not found");
+							}
+							}else {
+								System.out.println("There is no such data present");
+							}
+							break;
+						case 6:
 							// give rating and review to movie
 							sc.nextLine();
 							System.out.println("Enter the movie you watched before and gave rating and review to  movie");
@@ -285,7 +317,7 @@ public class ClientApplication {
 //							
 //							 
 							break;
-						case 6:
+						case 7:
 							// show watched movielist of user
 
 							 watchedmovies = mservice.getMovieName(uid);
@@ -300,7 +332,7 @@ public class ClientApplication {
 								System.out.println("there is no movie in watched history");
 							}
 							break;
-						case 7:
+						case 8:
 							exit = true;
 							break;
 						default:
