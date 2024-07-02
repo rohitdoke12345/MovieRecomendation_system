@@ -19,5 +19,10 @@ public class RatingReviewService {
 			return rrrepo.GetOverallRating();
 		}
 
+		public boolean checkadmin(String adminname, String adminpassword) {
+			// TODO Auto-generated method stub
+			return rrrepo.checkadmin(adminname,adminpassword);
+		}
+
         
 }

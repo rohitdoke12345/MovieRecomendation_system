@@ -7,10 +7,12 @@ public class DBconfig {
  private static PreparedStatement stmt;
  private static ResultSet rs;
  private static DBconfig db=null;
+ private static Properties p=null;
+ 
  private  DBconfig() {
 	try {
 		
-		Properties p=new Properties();
+		p=new Properties();
 		p.load(PathHelper.fin);
 //		System.out.println(PathHelper.fin);
 		String DriverClassName=p.getProperty("driver.classname");
@@ -47,4 +49,8 @@ public class DBconfig {
 	public static ResultSet getResultSet() {
 		return rs;
 	}
+	public static Properties  getproperties() {
+		return p;
+	}
+	
 }

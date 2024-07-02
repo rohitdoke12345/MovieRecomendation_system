@@ -31,7 +31,8 @@ public class ClientApplication {
 				System.out.println("enter your name and password");
 				String adminname = sc.nextLine();
 				String adminpassword = sc.nextLine();
-				if (("rohit".equalsIgnoreCase(adminname)) && ("Admin".equals(adminpassword))) {
+				boolean b=rrservice.checkadmin(adminname,adminpassword);
+				if (b) {
 					System.out.println(" Admin Login successfully..😁");
 					do {
 						System.out.println("1.add new movies ");
@@ -57,7 +58,7 @@ public class ClientApplication {
 							System.out.println("enter the movie year");
 							int year = sc.nextInt();
 							MovieModel mmodel = new MovieModel(mname, lang, actor, year);
-							boolean b = mservice.isAddMovie(mmodel);
+							 b = mservice.isAddMovie(mmodel);
 							if (b) {
 								System.out.println("movie added successfully...😊");
 							} else {
@@ -176,7 +177,7 @@ public class ClientApplication {
 						System.out.println("2.udpate user details here");
 						System.out.println("3.watch movie");
 						System.out.println("4.recomended top five movies");
-						System.out.println("5.");
+						System.out.println("5.see the review of movie");
 						System.out.println("6.give rating and review to movie which you watched");
 						System.out.println("7.show movie list which user already watched");
 						System.out.println("8.🔙exits");
@@ -208,7 +209,7 @@ public class ClientApplication {
 							sc.nextLine();
 							System.out.println("enter the movie name which you want to watch");
 							String moviename = sc.nextLine();
-							boolean b = mservice.assignMovie(moviename);
+							 b = mservice.assignMovie(moviename);
 							if (b) {
 								System.out.println("movie is assign to user successfully..😁");
 							} else {
@@ -247,7 +248,7 @@ public class ClientApplication {
 							for(Map.Entry<String, Float>d:data)
 							{
 								if(movname.equalsIgnoreCase(d.getKey())) {
-									if(d.getValue()>=4) {
+									if(d.getValue()>3) {
 										System.out.println("movie was good with rating 😁:"+d.getValue());
 									}else if(d.getValue()==3) {
 										System.out.println("movie was neutral with rating 😊:"+d.getValue());
@@ -355,7 +356,7 @@ public class ClientApplication {
 						String contact = sc.nextLine();
 						String pass=uservice.returnHash(userpassword);
 						UserModel umodel = new UserModel(username, pass, email, contact);
-						boolean b = uservice.registerUser(umodel);
+						 b = uservice.registerUser(umodel);
 						if (b) {
 							System.out.println("register successfully...😁");
 						} else {
@@ -378,7 +379,7 @@ public class ClientApplication {
 				String contact = sc.nextLine();
 				String pass=uservice.returnHash(userpassword);
 				UserModel umodel = new UserModel(username, pass, email, contact);
-				boolean b = uservice.registerUser(umodel);
+				 b = uservice.registerUser(umodel);
 				if (b) {
 					System.out.println("register successfully...thank you..😊");
 				} else {
