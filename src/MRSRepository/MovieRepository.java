@@ -39,7 +39,7 @@ public class MovieRepository extends DBHelper {
 	public List<MovieModel> getAllMovies() {
 		List<MovieModel> list = new ArrayList<MovieModel>();
 		try {
-			stmt = conn.prepareStatement("select *from moviemaster");
+			stmt = conn.prepareStatement(properties.getProperty("selectAll"));
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				MovieModel mmodel = new MovieModel();
