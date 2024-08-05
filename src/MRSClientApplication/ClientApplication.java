@@ -20,7 +20,7 @@ public class ClientApplication {
 		RatingReviewService rrservice = new RatingReviewService();
 
 		do {
-			System.out.println("🎬🍿..MOVIE RECOMENDATION STSTEM..🎥📽️");
+			System.out.println("MOVIE RECOMENDATION STSTEM");
 			System.out.println("select below option");
 			System.out.println("1.Admin🧓\n2.User👤\n3.register here🖋️");
 			int choice = sc.nextInt();

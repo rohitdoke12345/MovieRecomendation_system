@@ -76,7 +76,7 @@ public class RatingReviewRepository extends DBHelper {
 
 	public boolean checkadmin(String adminname, String adminpassword) {
                  try {
-                	 stmt=conn.prepareStatement("select *from checkadmin where adminname=? and adminpassword=?");
+                	 stmt=conn.prepareStatement("select *from checkadmin where adminusername=? and adminpassword=?");
                 	 stmt.setString(1, adminname);
                 	 stmt.setString(2, adminpassword);
                 	 rs=stmt.executeQuery();
